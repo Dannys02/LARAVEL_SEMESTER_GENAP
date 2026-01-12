@@ -10,5 +10,9 @@ Route::prefix('data')->group(function () {
         return "<h1>Nama saya $nama, sekolah di $sekolah</h1>";
     });
 
-    Route::get('/siswa/{nama?}/{sekolah?}', [App\Http\Controllers\StudentController::class, 'index']);
+    // Route::get('/siswa/{nama?}/{sekolah?}', [App\Http\Controllers\StudentController::class, 'index']);
 });
+
+Route::get('/student', [App\Http\Controllers\StudentController::class, 'index']);
+Route::get('/student/{nama?}', [App\Http\Controllers\StudentController::class, 'show']);
+
