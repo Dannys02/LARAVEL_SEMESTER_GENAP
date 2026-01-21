@@ -13,7 +13,9 @@ class StudentController extends Controller
     // }
 
     public function index() {
-        return "Halaman Student";
+        $students = ['Lala', 'Nova', 'Lia'];
+        $class = ['RPL 1','RPL 2','RPL 3'];
+        return view("student.index", compact("class", "students"));
     }
 
     public function show($nama = "") {
