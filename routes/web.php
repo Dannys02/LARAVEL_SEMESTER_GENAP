@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\JurusanController;
 
 // Prefix untuk beri url tambahan di depan route yang di tampung dalam group
 Route::prefix('data')->group(function () {
@@ -26,4 +27,14 @@ Route::prefix('student')->group(function () {
     Route::get('/massUpdate', [StudentController::class, 'massUpdate']);
     Route::get('/delete', [StudentController::class, 'delete']);
     Route::get('/destroy', [StudentController::class, 'destroy']);
+    Route::get('/massDelete', [StudentController::class, 'massDelete']);
+    Route::get('/all', [StudentController::class, 'all']);
+});
+
+Route::prefix('jurusan')->group(function () {
+    Route::get('/index', [JurusanController::class,'index']);
+    Route::get('/create', [JurusanController::class,'create']);
+    Route::get('/store', [JurusanController::class,'store']);
+    Route::get('/edit/{id}', [JurusanController::class,'edit']);
+    Route::get('/update/{id}', [JurusanController::class,'update']);
 });
