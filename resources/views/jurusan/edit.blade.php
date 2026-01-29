@@ -1,7 +1,7 @@
 @extends("layouts.app")
 @section("formEdit")
     <div class="mb-3">
-        <form action="/jurusan/update/{{ $jurusan->id }}">
+        <form action="/jurusan/update/{{ $jurusan->id }}" method="POST">
             @csrf
             @method('PUT')
             <label for="exampleFormControlInput1" class="form-label">Masukan jurusan:</label>
