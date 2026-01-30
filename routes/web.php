@@ -9,6 +9,10 @@ Route::get("/", function () {
   return view("welcome");
 });
 
+Route::get("/gallery/index", function () {
+  return view("gallery.index");
+});
+
 // Prefix untuk beri url tambahan di depan route yang di tampung dalam group
 Route::prefix("data")->group(function () {
   // Route dengan parameter opsional & nilai default
@@ -32,6 +36,7 @@ Route::prefix("perpus")->group(function () {
 
 // Route Student main data dataan
 Route::prefix("student")->group(function () {
+  Route::get("/index", [StudentController::class, "index"]);
   Route::get("/cekObject", [StudentController::class, "cekObject"]);
   Route::get("/insert", [StudentController::class, "insert"]);
   Route::get("/massAsignment", [StudentController::class, "massAsignment"]);

@@ -15,7 +15,7 @@
         <ul>
             <ol type="1">
                 @forelse ($students as $student)
-                    <li>{{ $student }}</li>
+                    <li>{{ $student->nama }}</li>
                 @empty
                     <p>Data siswa tidak ada</p>
                 @endforelse
@@ -24,21 +24,7 @@
         </ul>
     </div>
 
-    <div>
-        <h1>
-            Daftar Kelas
-        </h1>
-        <ul>
-            <ol type="1">
-                @forelse ($class as $clas)
-                    <li>{{ $clas }}</li>
-                @empty
-                    <p>Data kelas siswa tidak ada</p>
-                @endforelse
-
-            </ol>
-        </ul>
-    </div>
+   
     <script scr="http://cdn.tailwindcss.com"></script>
 </body>
 

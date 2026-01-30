@@ -23,6 +23,12 @@ class StudentController extends Controller
     //     return "Nama siswa : $nama";
     // }
 
+    public function index() {
+        // $students = Student::limit(1)->get();
+        $students = Student::all();
+        return view("student.index", compact("students"));
+    }
+
     public function cekObject()
     {
         $student = new Student();
