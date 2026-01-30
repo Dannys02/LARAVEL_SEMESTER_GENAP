@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\JurusanController;
+use App\Http\Controllers\PerpustakaanController;
 
 Route::get("/", function () {
   return view("welcome");
@@ -11,10 +12,7 @@ Route::get("/", function () {
 // Prefix untuk beri url tambahan di depan route yang di tampung dalam group
 Route::prefix("data")->group(function () {
   // Route dengan parameter opsional & nilai default
-  Route::get("/nama/{nama?}/{sekolah?}", function (
-    $nama = "John Doe",
-    $sekolah = "SMK Telkom"
-  ) {
+  Route::get("/nama/{nama?}/{sekolah?}", function ($nama = "John Doe", $sekolah = "SMK Telkom") {
     return "<h1>Nama saya $nama, sekolah di $sekolah</h1>";
   });
 
@@ -23,6 +21,14 @@ Route::prefix("data")->group(function () {
 
 // Route::get('/student', [StudentController::class, 'index']);
 // Route::get('/student/{nama?}', [StudentController::class, 'show']);
+
+Route::prefix("perpus")->group(function () {
+  // Route::get('/index', [PerpustakaanController::class, 'index']);
+  // Route::get('/tampil-buku', [PerpustakaanController::class, 'tampilBuku']);
+  Route::resource('jurusan', JurusanController::class)->except([
+    'show'
+  ]);
+});
 
 // Route Student main data dataan
 Route::prefix("student")->group(function () {
