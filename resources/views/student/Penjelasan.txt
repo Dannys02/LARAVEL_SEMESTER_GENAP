@@ -1,0 +1,13 @@
+PENJELASAN :
+• Anggota ke Peminjaman (One to Many): 
+Satu anggota bisa meminjam banyak buku 
+berkali-kali.
+
+• Buku ke Peminjaman (One to Many): 
+Satu buku bisa dipinjam oleh banyak anggota 
+secara bergantian di waktu berbeda.
+
+• Anggota ke Buku (Many to Many): 
+Banyak anggota bisa meminjam banyak buku. 
+Relasi ini dihubungkan oleh tabel 
+Peminjaman sebagai penengahnya.
