@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\PerpustakaanController;
+use App\Http\Controllers\MajorController;
 
 Route::get("/", function () {
   return view("welcome");
@@ -34,7 +35,7 @@ Route::prefix("perpus")->group(function () {
   ]);
 });
 
-// Route Student main data dataan
+// Route Student main data dataan student
 Route::prefix("student")->group(function () {
   Route::get("/index", [StudentController::class, "index"]);
   Route::get("/cekObject", [StudentController::class, "cekObject"]);
@@ -48,6 +49,7 @@ Route::prefix("student")->group(function () {
   Route::get("/all", [StudentController::class, "all"]);
 });
 
+// Route Student main data dataan jurusan
 Route::prefix("jurusan")->group(function () {
   Route::get("/index", [JurusanController::class, "index"]);
   Route::get("/create", [JurusanController::class, "create"]);
@@ -55,4 +57,9 @@ Route::prefix("jurusan")->group(function () {
   Route::get("/edit/{id}", [JurusanController::class, "edit"]);
   Route::put("/update/{id}", [JurusanController::class, "update"]);
   Route::delete("/delete/{id}", [JurusanController::class, "destroy"]);
+});
+
+// Route Student main data dataan major
+Route::prefix("major")->group(function () {
+  Route::get("/index", [MajorController::class, "index"]);
 });
