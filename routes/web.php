@@ -62,4 +62,9 @@ Route::prefix("jurusan")->group(function () {
 // Route Student main data dataan major
 Route::prefix("major")->group(function () {
   Route::get("/index", [MajorController::class, "index"]);
+  Route::get("/create", [MajorController::class, "create"]);
+  Route::post("/store", [MajorController::class, "store"]);
+  Route::get("/edit/{id}", [MajorController::class, "edit"]);
+  Route::put("/update/{id}", [MajorController::class, "update"]);
+  Route::delete("/delete/{id}", [MajorController::class, "destroy"]);
 });

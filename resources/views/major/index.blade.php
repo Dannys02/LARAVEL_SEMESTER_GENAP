@@ -16,8 +16,12 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $m->major_name }}</td>
                     <td class="d-flex gap-2">
-                        <a href="#" class="btn btn-sm btn-primary">Edit</a>
-                        <button class="btn btn-sm btn-danger">Hapus</button>
+                        <a href="/major/edit/{{ $m->id }}" class="btn btn-sm btn-primary">Edit</a>
+                        <form action="/major/delete/{{ $m->id }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-sm btn-danger" onclick="return confirm('Yakin hapus major {{ $m->major_name }}?')">Hapus</button>
+                        </form>
                     </td>
                 </tr>
             @empty
